@@ -2,8 +2,10 @@ name: Lineage Price 每小时币价更新
 
 on:
   schedule:
-    - cron: '5 * * * *' # 每小时第 5 分钟运行
-  workflow_dispatch:      # 支持手动点击运行
+    # 北京时间 09:05, 10:05 ... 直到 22:05 运行
+    # UTC 时间 01:05, 02:05 ... 直到 14:05
+    - cron: '5 1-14 * * *'
+  workflow_dispatch:
 
 concurrency:
   group: price-task
